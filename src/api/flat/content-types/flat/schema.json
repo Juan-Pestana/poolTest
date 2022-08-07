@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flats",
+  "info": {
+    "singularName": "flat",
+    "pluralName": "flats",
+    "displayName": "Flat"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "flatCode": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "flat"
+    },
+    "Active": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

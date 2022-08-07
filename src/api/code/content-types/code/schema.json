@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "codes",
+  "info": {
+    "singularName": "code",
+    "pluralName": "codes",
+    "displayName": "Code",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "member": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::member.member",
+      "mappedBy": "code"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "codes"
+    },
+    "tipo": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "invitación",
+        "p_verano"
+      ],
+      "default": "normal"
+    },
+    "available": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    }
+  }
+}
